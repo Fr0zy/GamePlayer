@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/upheaval');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Sen&family=Source+Code+Pro:wght@400;800&display=swap');
 
 body {
@@ -73,6 +74,7 @@ td {
     cursor: pointer;
     align-self: center;
     margin: auto;
+    border-radius: 10px;
 }
 
 .menu_container > button:hover {

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
+    <link th:href="@{style.css}" rel="stylesheet" />
     <title>GamePLayer</title>
 </head>
 <body>
@@ -12,65 +12,9 @@
             Leaderboard
         </h2>
         <table>
-            <tr>
-                <td>1. doodlehateu</td>
-                <td>6666</td>
-            </tr>
-            <tr>
-                <td>2. aboba345</td>
-                <td>541</td>
-            </tr>
-            <tr>
-                <td>3. aboba345</td>
-                <td>539</td>
-            </tr>
-            <tr>
-                <td>4. aboba345</td>
-                <td>531</td>
-            </tr>
-            <tr>
-                <td>5. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>6. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>7. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>8. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>9. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>10. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>11. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>12. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>13. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>14. doodlehateu</td>
-                <td>528</td>
-            </tr>
-            <tr>
-                <td>15. doodlehateu</td>
-                <td>528</td>
+            <tr th:each="users : ${users}">
+                <td th:text="${users.nickname}">Player</td>
+                <td th:text="${users.name}">-</td>
             </tr>
         </table>
     </div>
