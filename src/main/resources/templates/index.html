@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{style.css}" rel="stylesheet" />
+    <title>GamePLayer</title>
+</head>
+<body>
+    <div class="leaderboard">
+        <h2>
+            Leaderboard
+        </h2>
+        <table>
+            <tr th:each="users : ${users}">
+                <td th:text="${users.nickname}">Player</td>
+                <td th:text="${users.name}">-</td>
+            </tr>
+        </table>
+    </div>
+    <div class="menu_container">
+        <h1>Our Game</h1>
+        <button>PLAY</button>
+    </div>
+</body>
+</html>
