@@ -15,20 +15,19 @@
             <div class="input-group">
                 <div class="input-field">
                     <i class="fa-solid fa-user-astronaut"></i>
-                    <input type="text" placeholder="Name">
+                    <input id="name-field" type="text" placeholder="Name">
                 </div>
-
-
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input id="password-field" type="password" placeholder="Password">
                 </div>
+                <p class="log-error"> </p>
                 <p>Forgot password <a class="forgot-btn" onclick="window.location.href='http://localhost:63342/GamePlayer/src/main/resources/templates/LoginPage/ForgotPassword/forgot-password.html?_ijt=msqk20rtd00g9inteja92486dr&_ij_reload=RELOAD_ON_SAVE'">Click here</a></p>
             </div>
             <div>
                 <div class="btn-field">
                     <button onclick="window.location.href='http://localhost:63342/GamePlayer/src/main/resources/templates/LoginPage/SignUp/sign-up.html?_ijt=lqae5glomtpmnvi830lujb6g67&_ij_reload=RELOAD_ON_SAVE'" id="sign-up-btn" type="button"> Sign up </button>
-                    <button id="sign-in-btn" type="button"> Sign in </button>
+                    <button onclick="signIn()" id="sign-in-btn" type="button"> Sign in </button>
                 </div>
             </div>
         </form>
