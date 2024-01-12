@@ -1,6 +1,7 @@
 package com.example.gameplayer.controllers;
 
 import com.example.gameplayer.dto.UserLoginDTO;
+import com.example.gameplayer.dto.UserRegisterDTO;
 import com.example.gameplayer.services.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,22 @@ public class AuthController {
         }
 
         return "redirect:/index";
+    }
+
+    @GetMapping("/register")
+    public String showRegisterForm(Model model){
+        model.addAttribute("registerForm", new UserRegisterDTO());
+        return "LoginPage/SignUp/sign-up";
+    }
+
+    @PostMapping("/register")
+    public String processRegister(@ModelAttribute("registerForm") UserRegisterDTO userRegisterDTO) {
+        var userId = authService.register(userRegisterDTO);
+        if (userId == null) {
+            return "redirect:/error";
+        }
+
+        return "redirect:/login";
     }
 
 
