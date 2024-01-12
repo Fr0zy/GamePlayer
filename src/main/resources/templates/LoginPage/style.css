@@ -23,8 +23,12 @@
     text-align: center;
     background: #fcba03;
     padding: 10px;
-    -ms-transform: translateY(70%);
-    transform: translateY(70%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*-ms-transform: translate(-50%, -50%);*/
+    transform: translate(-50%, -50%);
+
 }
 .form-box h1{
     font-size: 30px;
@@ -63,6 +67,7 @@ input{
 .input-field{
     margin-right: 30px;
     color: #3c00a0;
+    padding-left: 10px;
 }
 form p{
     text-align: center;
@@ -74,4 +79,23 @@ form p a{
         text-decoration: none;
         color: #eb4034;
 }
+
+.btn-field button{
+    background: #f7d577;
+    border-radius: 3px;
+    align-items: center;
+    padding: 10px;
+    color: #3c00a0;
+    border: 0;
+    margin-top: 10px;
+}
+
+.btn-field button:hover{
+    transform: scale(1.1);
+    background-color: #3c00a0;
+    color: #f7d577;
+    transition: .3s;
+    cursor: pointer;
+}
+
 

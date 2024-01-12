@@ -3,14 +3,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In and Sign Up Form</title>
-    <link rel="stylesheet"  href="style.css">
+    <link rel="stylesheet"  href="../style.css">
     <script src="https://kit.fontawesome.com/796f2a4433.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 <div class="container">
     <div class="form-box">
-        <h1>Sign Up</h1>
+        <h1>Sign In</h1>
         <form>
             <div class="input-group">
                 <div class="input-field">
@@ -18,10 +18,6 @@
                     <input type="text" placeholder="Name">
                 </div>
 
-                <div class="input-field">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Email">
-                </div>
 
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
@@ -31,11 +27,13 @@
             </div>
             <div>
                 <div class="btn-field">
-                    <button type="button"> Sign up </button>
-                    <button type="button"> Sign in </button>
+                    <button id="sign-up-btn" type="button"> Sign up </button>
+                    <button id="sign-in-btn" type="button"> Sign in </button>
+                </div>
             </div>
         </form>
     </div>
 </div>
+<script src="sign-in.js"></script>
 </body>
 </html>
