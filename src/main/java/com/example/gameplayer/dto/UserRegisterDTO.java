@@ -1,8 +1,8 @@
 package com.example.gameplayer.dto;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+@Data
 public class UserRegisterDTO {
     String name;
     String email;
