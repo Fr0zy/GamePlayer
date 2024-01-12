@@ -98,4 +98,17 @@ form p a{
     cursor: pointer;
 }
 
+.form-box h2{
+    color: #3c00a0;
+}
+
+.forgot{
+    margin-bottom: 60px;
+
+}
+
+.forgot-btn{
+    cursor: pointer;
+    text-decoration: underline;
+}
 
