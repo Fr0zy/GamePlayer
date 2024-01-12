@@ -12,9 +12,9 @@
             Leaderboard
         </h2>
         <table>
-            <tr th:each="users : ${users}">
-                <td th:text="${users.nickname}">Player</td>
-                <td th:text="${users.name}">-</td>
+            <tr th:each="userScores : ${userScores}">
+                <td th:text="${userScores.id + '.' + ' ' + userScores.nickname}">Player</td>
+                <td th:text="${userScores.score}"></td>
             </tr>
         </table>
     </div>

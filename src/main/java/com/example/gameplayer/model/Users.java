@@ -16,6 +16,7 @@ public class Users {
     private String name;
     private String surname;
 
+    @Column(unique=true)
     private String nickname;
     private String email;
     private String password;

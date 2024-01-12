@@ -1,27 +1,19 @@
 package com.example.gameplayer.controllers;
 
-import com.example.gameplayer.converters.UsersCommandToUsers;
-import com.example.gameplayer.converters.UsersToUsersCommand;
-import com.example.gameplayer.repositories.UsersRepository;
+import com.example.gameplayer.services.UserScoreService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequiredArgsConstructor
 @Controller
 public class UsersController {
-    private UsersRepository usersRepository;
-    private UsersCommandToUsers usersCommandToUsers;
-    private UsersToUsersCommand usersToUsersCommand;
-
-    public UsersController(UsersRepository usersRepository, UsersCommandToUsers usersCommandToUsers, UsersToUsersCommand usersToUsersCommand){
-        this.usersRepository = usersRepository;
-        this.usersCommandToUsers = usersCommandToUsers;
-        this.usersToUsersCommand = usersToUsersCommand;
-    }
+    private final UserScoreService userScoreService;
 
     @RequestMapping(value = {"/index"})
-    public String getUsers(Model model){
-        model.addAttribute("users", usersRepository.findAll());
+    public String getUsersAndScore(Model model){
+        model.addAttribute("userScores", userScoreService.getUserScores());
         return "index";
     }
 }
