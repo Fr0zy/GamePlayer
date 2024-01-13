@@ -10,11 +10,11 @@
     <div class="form-box">
         <h1>Incorrect login data</h1>
         <h2>Something is wrong with login or password </h2>
-        <br>
-        <h2 class="forgot">Just sign up again :)</h2>
 
         <div class="btn-field">
-            <button th:href="@{/login}" id="sign-in-btn" type="button"> Sign in </button>
+            <a th:href="@{/login}">
+                <button id="sign-in-btn" type="button"> Sign in </button>
+            </a>
         </div>
     </div>
 </div>

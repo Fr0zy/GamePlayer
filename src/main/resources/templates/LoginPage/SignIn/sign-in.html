@@ -22,11 +22,13 @@
                     <input th:field="*{password}" id="password-field" type="password" placeholder="Password">
                 </div>
                 <p class="log-error"> </p>
-                <p>Forgot password <a class="forgot-btn" onclick="window.location.href='http://localhost:63342/GamePlayer/src/main/resources/templates/LoginPage/ForgotPassword/forgot-password.html?_ijt=msqk20rtd00g9inteja92486dr&_ij_reload=RELOAD_ON_SAVE'">Click here</a></p>
+                <p>Forgot password <a class="forgot-btn" th:href="@{/forgot-password}">Click here</a></p>
             </div>
             <div>
                 <div class="btn-field">
-                    <button th:href="@{/register}" id="sign-up-btn" type="button"> Sign up </button>
+                    <a th:href="@{/register}">
+                        <button id="sign-up-btn" type="button"> Sign up </button>
+                    </a>
                     <button id="sign-in-btn" type="submit"> Sign in </button>
                 </div>
             </div>

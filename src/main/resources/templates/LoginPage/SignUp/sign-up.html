@@ -11,28 +11,30 @@
 <div class="container">
   <div class="form-box">
     <h1>Sign Up</h1>
-    <form>
+    <form action="#" th:action="@{/register}" th:object="${registerForm}" method="post">
       <div class="input-group">
         <div class="input-field">
           <i class="fa-solid fa-user-astronaut"></i>
-          <input type="text" placeholder="Name">
+          <input th:field="*{name}" type="text" placeholder="Name">
         </div>
 
         <div class="input-field">
           <i class="fa-solid fa-envelope"></i>
-          <input type="email" placeholder="Email">
+          <input th:field="*{email}" type="email" placeholder="Email">
         </div>
 
         <div class="input-field">
           <i class="fa-solid fa-lock"></i>
-          <input type="password" placeholder="Password">
+          <input th:field="*{password}" type="password" placeholder="Password">
         </div>
 
       </div>
       <div>
         <div class="btn-field">
-          <button id="sign-up-btn" type="button"> Sign up </button>
-          <button th:href="@{/login}" id="sign-in-btn" type="button"> Sign in </button>
+          <button id="sign-up-btn" type="submit"> Sign up </button>
+          <a th:href="@{/login}">
+            <button id="sign-in-btn" type="button"> Sign in </button>
+          </a>
         </div>
       </div>
     </form>

@@ -17,6 +17,10 @@ h1, h2 {
     cursor: default;
 }
 
+a {
+    text-decoration: none;
+}
+
 .leaderboard {
     width: 30%;
     display: flex;

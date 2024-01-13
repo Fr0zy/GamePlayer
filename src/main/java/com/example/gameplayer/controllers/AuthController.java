@@ -25,7 +25,7 @@ public class AuthController {
     public String processLogin(@ModelAttribute("loginForm") UserLoginDTO userLoginDTO) {
         var userId = authService.login(userLoginDTO);
         if (userId == null) {
-            return "redirect:/error";
+            return "LoginPage/LoginError/login-error";
         }
 
         return "redirect:/index";
@@ -41,10 +41,15 @@ public class AuthController {
     public String processRegister(@ModelAttribute("registerForm") UserRegisterDTO userRegisterDTO) {
         var userId = authService.register(userRegisterDTO);
         if (userId == null) {
-            return "redirect:/error";
+            return "LoginPage/LoginError/login-error";
         }
 
         return "redirect:/login";
+    }
+
+    @GetMapping("/forgot-password")
+    public String showForgotPassword(Model model){
+        return "LoginPage/ForgotPassword/forgot-password";
     }
 
 
