@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Graviball</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link th:href="@{style.css}" rel="stylesheet" >
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -55,7 +54,7 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
+      var buildUrl = "/Build";
       var loaderUrl = buildUrl + "/Graviball.loader.js";
       var config = {
         dataUrl: buildUrl + "/Graviball.data",
@@ -109,6 +108,11 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+
+          const onUnityRequestValue = () => {
+
+          }
+          
         }).catch((message) => {
           alert(message);
         });
