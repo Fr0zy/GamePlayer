@@ -54,7 +54,7 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "/Build";
+      var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Graviball.loader.js";
       var config = {
         dataUrl: buildUrl + "/Graviball.data",
@@ -67,12 +67,12 @@
         showBanner: unityShowBanner,
       };
 
-      var playerName = localStorage.getItem('playername');
-      console.log(playerName)
+      //var playerName = localStorage.getItem('playername');
+      //console.log(playerName)
 
-      const onUnityRequestValue = (str) => {
-            return playerName;
-      }
+      //const onUnityRequestValue = (str) => {
+      //      return playerName;
+      //}
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -123,7 +123,7 @@
           // var jsonData = JSON.stringify({
           //     playername: playerNamee,
           //   });
-          console.log("SET PLAYER!!!!: ", playerNamee)
+          //console.log("SET PLAYER!!!!: ", playerName)
 
           // Wywołaj funkcję w Unity WebGL
 
