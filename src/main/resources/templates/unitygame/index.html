@@ -57,10 +57,10 @@
       var buildUrl = "/Build";
       var loaderUrl = buildUrl + "/Graviball.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Graviball.data.gz" ,
-        frameworkUrl: buildUrl + "/Graviball.framework.js.gz",
-        codeUrl: buildUrl + "/Graviball.wasm.gz",
-        streamingAssetsUrl: "/StreamingAssets" ,
+        dataUrl: buildUrl + "/Graviball.data",
+        frameworkUrl: buildUrl + "/Graviball.framework.js",
+        codeUrl: buildUrl + "/Graviball.wasm",
+        streamingAssetsUrl: "StreamingAssets",
         companyName: "Bloknot Studio",
         productName: "Graviball",
         productVersion: "1.0",
@@ -99,7 +99,7 @@
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
-      script.src= loaderUrl;                  
+      script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
@@ -108,11 +108,26 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+          // Pobierz dane z localStorage
+          var playerNamee = localStorage.getItem('playername');
+
+          // Utwórz obiekt JSON
+          var jsonData = JSON.stringify({
+              playername: playerNamee,
+            });
+
+          // Wywołaj funkcję w Unity WebGL
+
+          setTimeout(() => {
+            unityInstance.SendMessage("GameSocket", "PostTextWithKey", jsonData)
+            console.log('SETTIME READY')
+          }, 1000)
+          
+
         }).catch((message) => {
           alert(message);
         });
       };
-
       document.body.appendChild(script);
     </script>
   </body>
