@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Graviball</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <link th:href="@{style.css}" rel="stylesheet" >
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -55,7 +54,7 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
+      var buildUrl = "/Build";
       var loaderUrl = buildUrl + "/Graviball.loader.js";
       var config = {
         dataUrl: buildUrl + "/Graviball.data",
@@ -67,6 +66,13 @@
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
+
+      var playerName = localStorage.getItem('playername');
+      console.log(playerName)
+
+      const onUnityRequestValue = (str) => {
+            return playerName;
+      }
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -109,6 +115,23 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+
+          // Pobierz dane z localStorage
+         
+
+          // Utwórz obiekt JSON
+          // var jsonData = JSON.stringify({
+          //     playername: playerNamee,
+          //   });
+          console.log("SET PLAYER!!!!: ", playerNamee)
+
+          // Wywołaj funkcję w Unity WebGL
+
+          // setTimeout(() => {
+          //   unityInstance.SendMessage("GameSocket", "PostTextWithKey", jsonData)
+          //   console.log('SETTIME READY')
+          // }, 1000)
+          
         }).catch((message) => {
           alert(message);
         });
