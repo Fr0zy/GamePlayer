@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Graviball</title>
-    <link th:href="@{style.css}" rel="stylesheet" >
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -54,7 +55,7 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "/Build";
+      var buildUrl = "Build";
       var loaderUrl = buildUrl + "/Graviball.loader.js";
       var config = {
         dataUrl: buildUrl + "/Graviball.data",
@@ -108,22 +109,6 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
-          // Pobierz dane z localStorage
-          var playerNamee = localStorage.getItem('playername');
-
-          // Utwórz obiekt JSON
-          var jsonData = JSON.stringify({
-              playername: playerNamee,
-            });
-
-          // Wywołaj funkcję w Unity WebGL
-
-          setTimeout(() => {
-            unityInstance.SendMessage("GameSocket", "PostTextWithKey", jsonData)
-            console.log('SETTIME READY')
-          }, 1000)
-          
-
         }).catch((message) => {
           alert(message);
         });
