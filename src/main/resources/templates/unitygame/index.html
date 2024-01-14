@@ -108,6 +108,22 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+          // Pobierz dane z localStorage
+          var playerNamee = localStorage.getItem('playername');
+
+          // Utwórz obiekt JSON
+          var jsonData = JSON.stringify({
+              playername: playerNamee,
+            });
+
+          // Wywołaj funkcję w Unity WebGL
+
+          setTimeout(() => {
+            unityInstance.SendMessage("GameSocket", "PostTextWithKey", jsonData)
+            console.log('SETTIME READY')
+          }, 1000)
+          
+
         }).catch((message) => {
           alert(message);
         });
