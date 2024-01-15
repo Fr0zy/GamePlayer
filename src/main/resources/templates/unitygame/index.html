@@ -67,12 +67,10 @@
         showBanner: unityShowBanner,
       };
 
-      //var playerName = localStorage.getItem('playername');
-      //console.log(playerName)
-
-      //const onUnityRequestValue = (str) => {
-      //      return playerName;
-      //}
+      function onUnityRequestValue(key) {
+          var playerName = localStorage.getItem('playername');
+           return playerName;
+      }
 
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -115,33 +113,12 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
-
-          // Pobierz dane z localStorage
-         
-
-          // Utwórz obiekt JSON
-          // var jsonData = JSON.stringify({
-          //     playername: playerNamee,
-          //   });
-          //console.log("SET PLAYER!!!!: ", playerName)
-
-          // Wywołaj funkcję w Unity WebGL
-
-          // setTimeout(() => {
-          //   unityInstance.SendMessage("GameSocket", "PostTextWithKey", jsonData)
-          //   console.log('SETTIME READY')
-          // }, 1000)
           
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
-
-      function onUnityRequestValue(key) {
-        return "John";
-      }
-
     </script>
   </body>
 </html>
