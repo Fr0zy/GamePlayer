@@ -25,16 +25,5 @@ public class DBInflater implements ApplicationListener<ContextRefreshedEvent> {
 
     private void initData(){
 
-        Users kyryl = new Users("Kyryl","Zlotnyk","Fr0zy","kzlotnyk@gmail.com","saw12345");
-        Score kyrylScore = new Score(15L,kyryl);
-
-        usersRepository.save(kyryl);
-        scoreRepository.save(kyrylScore);
-
-        Users viktor = new Users("Viktor","Yukhnevich","nineteen","vyukhnevich@gmail.com","123456789");
-        Score viktorScore = new Score(0L,viktor);
-
-        usersRepository.save(viktor);
-        scoreRepository.save(viktorScore);
     }
 }

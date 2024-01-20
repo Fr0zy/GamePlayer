@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{style.css}" rel="stylesheet" />
     <title>GamePLayer</title>
-    <script>
+    <script th:inline="javascript">
+        const loadUserId = (userId) => sessionStorage.setItem("userId", userId);
+        document.onload = () => loadUserId(/*[[${id}]]*/);
+
         var unityInstance = UnityLoader.instantiate(("unityContainer", "Build/_Build.json", {onProgress: UnityProgress}));
     </script>
 </head>
@@ -16,7 +19,7 @@
         </h2>
         <table>
             <tr th:each="userScores : ${userScores}">
-                <td th:text="${userScores.id + '.' + ' ' + userScores.nickname}">Player</td>
+                <td th:text="${userScoresStat.index + 1 + '.' + ' ' + userScores.nickname}">Player</td>
                 <td th:text="${userScores.score}"></td>
             </tr>
         </table>

@@ -25,4 +25,12 @@ public class Score {
 
     public Score() {
     }
+
+    @Override
+    public String toString() {
+        return "Score{" +
+                "id=" + id +
+                ", score=" + score +
+                '}';
+    }
 }

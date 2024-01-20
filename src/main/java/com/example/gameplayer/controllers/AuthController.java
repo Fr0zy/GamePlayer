@@ -3,6 +3,7 @@ package com.example.gameplayer.controllers;
 import com.example.gameplayer.dto.UserLoginDTO;
 import com.example.gameplayer.dto.UserRegisterDTO;
 import com.example.gameplayer.services.AuthService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,12 +23,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String processLogin(@ModelAttribute("loginForm") UserLoginDTO userLoginDTO) {
+    public String processLogin(@ModelAttribute("loginForm") UserLoginDTO userLoginDTO, Model model) {
         var userId = authService.login(userLoginDTO);
         if (userId == null) {
             return "LoginPage/LoginError/login-error";
         }
-
+        model.addAttribute("userId", userId);
         return "redirect:/index";
     }
 
@@ -51,7 +52,4 @@ public class AuthController {
     public String showForgotPassword(Model model){
         return "LoginPage/ForgotPassword/forgot-password";
     }
-
-
-
 }

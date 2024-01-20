@@ -5,7 +5,10 @@
     <title>Sign In and Sign Up Form</title>
     <link th:href="@{LoginPageStyle.css}" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/796f2a4433.js" crossorigin="anonymous"></script>
-
+    <script>
+        localStorage.removeItem("playername")
+        localStorage.setItem("playerscore", 0)
+    </script>
 </head>
 <body>
 <div class="container">

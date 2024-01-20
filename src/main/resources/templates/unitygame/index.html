@@ -67,9 +67,29 @@
         showBanner: unityShowBanner,
       };
 
-      function onUnityRequestValue(key) {
-          var playerName = localStorage.getItem('playername');
-           return playerName;
+      function onUnityRequestValue(key, val) {
+          var dataKey = key;
+
+          if(dataKey === "playername") {
+            var player = localStorage.getItem('playername');
+            return player;
+          }
+          if(dataKey === "score_data") {
+            return localStorage.getItem('playerscore');
+          }
+      }
+
+      function onUnitySendValue(key, val) {
+        if(key === "new_highscore") {
+          localStorage.setItem('playerscore', val);
+          fetch('/score', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({nickname: localStorage.getItem("playername"), score: parseInt(localStorage.getItem("playerscore"))}),
+          });
+        }
       }
 
       // By default Unity keeps WebGL canvas render target size matched with
