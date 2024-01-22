@@ -19,7 +19,7 @@ public class AuthService {
     }
 
     private static Users toUser(UserRegisterDTO userRegisterDTO) {
-        return new Users(null, null, userRegisterDTO.getName(), userRegisterDTO.getEmail(), userRegisterDTO.getPassword());
+        return new Users(userRegisterDTO.getName(), userRegisterDTO.getEmail(), userRegisterDTO.getPassword());
     }
     public Long login(UserLoginDTO userLoginDTO){
         var user = usersRepository.findByNickname(userLoginDTO.getNickname());

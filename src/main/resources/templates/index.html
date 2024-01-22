@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{style.css}" rel="stylesheet" />
-    <title>GamePLayer</title>
+    <title>GamePlayer</title>
     <script th:inline="javascript">
         const loadUserId = (userId) => sessionStorage.setItem("userId", userId);
         document.onload = () => loadUserId(/*[[${id}]]*/);

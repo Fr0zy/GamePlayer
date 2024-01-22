@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 public class UsersCommand {
 
     private Long id;
-    private String name;
-    private String surname;
     private String nickname;
     private String email;
     private String password;

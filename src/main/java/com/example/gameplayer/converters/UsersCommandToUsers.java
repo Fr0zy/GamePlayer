@@ -16,8 +16,6 @@ public class UsersCommandToUsers implements Converter<UsersCommand, Users> {
     public Users convert(UsersCommand source){
 
         final Users users = new Users();
-        users.setName(source.getName());
-        users.setSurname(source.getSurname());
         users.setNickname(source.getNickname());
         users.setEmail(source.getEmail());
         users.setPassword(source.getPassword());
