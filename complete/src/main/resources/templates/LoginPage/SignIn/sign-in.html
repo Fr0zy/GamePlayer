@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In and Sign Up Form</title>
+    <link th:href="@{LoginPageStyle.css}" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/796f2a4433.js" crossorigin="anonymous"></script>
+    <script>
+        localStorage.removeItem("playername")
+        localStorage.setItem("playerscore", 0)
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1>Sign In</h1>
+        <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
+            <div class="input-group">
+                <div class="input-field">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    <input th:field="*{nickname}" id="name-field" type="text" placeholder="Name">
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input th:field="*{password}" id="password-field" type="password" placeholder="Password">
+                </div>
+                <p class="log-error"> </p>
+                <p>Forgot password <a class="forgot-btn" th:href="@{/forgot-password}">Click here</a></p>
+            </div>
+            <div>
+                <div class="btn-field">
+                    <a th:href="@{/register}">
+                        <button id="sign-up-btn" type="button"> Sign up </button>
+                    </a>
+                    <button id="sign-in-btn" type="submit" onclick="signIn()"> Sign in </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/js/sign-in.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In and Sign Up Form</title>
+    <link th:href="@{LoginPageStyle.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <div class="form-box">
+        <h1>Incorrect login data</h1>
+        <h2>Something is wrong with login or password </h2>
+
+        <div class="btn-field">
+            <a th:href="@{/login}">
+                <button id="sign-in-btn" type="button"> Sign in </button>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="sign-in.js"></script>
+</body>
+</html>

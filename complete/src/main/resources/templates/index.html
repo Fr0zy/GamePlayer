@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{style.css}" rel="stylesheet" />
+    <title>GamePlayer</title>
+    <script th:inline="javascript">
+        const loadUserId = (userId) => sessionStorage.setItem("userId", userId);
+        document.onload = () => loadUserId(/*[[${id}]]*/);
+
+        var unityInstance = UnityLoader.instantiate(("unityContainer", "Build/_Build.json", {onProgress: UnityProgress}));
+    </script>
+</head>
+<body>
+    <div class="leaderboard">
+        <h2>
+            Leaderboard
+        </h2>
+        <table>
+            <tr th:each="userScores : ${userScores}">
+                <td th:text="${userScoresStat.index + 1 + '.' + ' ' + userScores.nickname}">Player</td>
+                <td th:text="${userScores.score}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="menu_container">
+        <h1>Graviball</h1>
+        <iframe th:src="@{/game}" frameborder="0" width="1000" height="700"></iframe>
+    </div>
+</body>
+</html>
